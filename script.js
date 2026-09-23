@@ -59,13 +59,14 @@ document.querySelectorAll('.glitch-title .line').forEach(el=>{
   const VB = {w:1400, h:700};
 
   const shoulders = {
-    left:  {x:180, y:560, l1:170, l2:130, mirror:1, base: -35},
-    right: {x:1220, y:560, l1:170, l2:130, mirror:-1, base: -35}
+    left:  {x:620, y:430, l1:130, l2:110, mirror:-1},
+    right: {x:780, y:430, l1:130, l2:110, mirror:1}
   };
 
-  let target = {x:700, y:260};
-  let smoothed = {x:700, y:260};
-  const restTargets = {left:{x:420,y:330}, right:{x:980,y:330}};
+  let target = {x:700, y:470};
+  let smoothed = {x:700, y:470};
+  const restTargets = {left:{x:400,y:560}, right:{x:1000,y:560}};
+  const restHead = 700;
 
   function svgPointFromEvent(e){
     const rect = svg.getBoundingClientRect();
@@ -77,7 +78,7 @@ document.querySelectorAll('.glitch-title .line').forEach(el=>{
   function solveIK(shoulder, tx, ty){
     const {x:sx, y:sy, l1, l2, mirror} = shoulder;
     let dx = (tx - sx) * mirror;
-    let dy = sy - ty;
+    let dy = ty - sy;
     let dist = Math.sqrt(dx*dx + dy*dy);
     const maxReach = l1 + l2 - 4;
     const minReach = Math.abs(l1 - l2) + 4;
@@ -87,13 +88,13 @@ document.querySelectorAll('.glitch-title .line').forEach(el=>{
     const elbowAngle = Math.acos(Math.max(-1, Math.min(1, cosElbow)));
     const cosShoulder = (l1*l1 + dist*dist - l2*l2) / (2*l1*dist);
     const shoulderOffset = Math.acos(Math.max(-1, Math.min(1, cosShoulder)));
-    const shoulderAngle = angleToTarget + shoulderOffset;
+    const shoulderAngle = angleToTarget - shoulderOffset;
 
     const ex = sx + mirror * l1 * Math.cos(shoulderAngle);
-    const ey = sy - l1 * Math.sin(shoulderAngle);
-    const wristAngle = shoulderAngle - (Math.PI - elbowAngle);
+    const ey = sy + l1 * Math.sin(shoulderAngle);
+    const wristAngle = shoulderAngle + (Math.PI - elbowAngle);
     const hx = ex + mirror * l2 * Math.cos(wristAngle);
-    const hy = ey - l2 * Math.sin(wristAngle);
+    const hy = ey + l2 * Math.sin(wristAngle);
 
     return {ex, ey, hx, hy};
   }
@@ -132,6 +133,8 @@ document.querySelectorAll('.glitch-title .line').forEach(el=>{
     }
   });
 
+  const head = document.getElementById('head');
+
   function tick(){
     const now = performance.now();
     const idle = now - lastMove > 2500 || !mouseActive;
@@ -144,6 +147,12 @@ document.querySelectorAll('.glitch-title .line').forEach(el=>{
     const poseR = solveIK(shoulders.right, idle ? restTargets.right.x : smoothed.x, idle ? restTargets.right.y : smoothed.y);
     applyPose('left', poseL);
     applyPose('right', poseR);
+
+    if(head){
+      const headTurn = idle ? 0 : Math.max(-14, Math.min(14, (smoothed.x - restHead) * 0.03));
+      const headTilt = idle ? 0 : Math.max(-6, Math.min(6, (smoothed.y - 470) * 0.01));
+      head.setAttribute('transform', `translate(700,${(360+headTilt).toFixed(1)}) rotate(${headTurn.toFixed(1)})`);
+    }
 
     requestAnimationFrame(tick);
   }
