@@ -5,15 +5,8 @@ html{scroll-behavior:smooth}
 body{margin:0;background:#0d0620;color:var(--ink);font-family:'VT323',monospace;font-size:19px;line-height:1.6;position:relative}
 .container{width:min(1100px,calc(100% - 40px));margin:auto;position:relative;z-index:2}
 .skyline-wrap{position:fixed;inset:0;z-index:0;overflow:hidden}
-.skyline-wrap svg{width:100%;height:100%;display:block}
+.skyline-img{width:100%;height:100%;display:block;border:0;pointer-events:none}
 .vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 40%,rgba(5,2,15,0.55) 100%)}
-.star{animation:twinkle 3s ease-in-out infinite}
-@keyframes twinkle{0%,100%{opacity:.9}50%{opacity:.15}}
-.win{animation:winkle 5s ease-in-out infinite}
-@keyframes winkle{0%,100%{opacity:1}45%{opacity:1}50%{opacity:.25}55%{opacity:1}}
-.layer-far{opacity:.85}
-.layer-mid{opacity:.92}
-.layer-near{opacity:1}
 .nav-wrap{position:relative;z-index:5;border-bottom:1px solid rgba(255,143,208,.25);background:rgba(10,4,26,.35);backdrop-filter:blur(3px)}
 .nav{height:74px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
