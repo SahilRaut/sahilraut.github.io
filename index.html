@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Sahil Raut -- Robotics and Machine Learning Engineer. Humanoid robotics, embodied control, large language models."/>
+<meta name="description" content="Sahil Raut -- Robotics and Machine Learning Engineer. Humanoid robotics, embodied control, manipulation, large language models."/>
 <title>Sahil Raut // Robotics</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -11,7 +11,56 @@
 </head>
 <body>
 <div class="grid-bg" aria-hidden="true"></div>
-<div class="bits" aria-hidden="true"><span class="bit" style="left:59%;top:75%;font-size:16px;opacity:0.24">1</span><span class="bit" style="left:77%;top:28%;font-size:16px;opacity:0.26">0</span><span class="bit" style="left:25%;top:16%;font-size:14px;opacity:0.15">1</span><span class="bit" style="left:70%;top:92%;font-size:16px;opacity:0.34">0</span><span class="bit" style="left:85%;top:82%;font-size:12px;opacity:0.31">0</span><span class="bit" style="left:9%;top:63%;font-size:13px;opacity:0.28">1</span><span class="bit" style="left:47%;top:8%;font-size:14px;opacity:0.19">0</span><span class="bit" style="left:93%;top:51%;font-size:16px;opacity:0.22">1</span><span class="bit" style="left:14%;top:41%;font-size:12px;opacity:0.17">0</span><span class="bit" style="left:63%;top:19%;font-size:13px;opacity:0.29">1</span><span class="bit" style="left:32%;top:88%;font-size:16px;opacity:0.33">0</span><span class="bit" style="left:81%;top:6%;font-size:14px;opacity:0.21">1</span><span class="bit" style="left:4%;top:23%;font-size:12px;opacity:0.16">0</span><span class="bit" style="left:55%;top:97%;font-size:13px;opacity:0.27">1</span><span class="bit" style="left:97%;top:37%;font-size:16px;opacity:0.30">0</span><span class="bit" style="left:18%;top:78%;font-size:14px;opacity:0.20">1</span><span class="bit" style="left:39%;top:53%;font-size:12px;opacity:0.18">0</span><span class="bit" style="left:73%;top:64%;font-size:13px;opacity:0.25">1</span><span class="bit" style="left:5%;top:5%;font-size:16px;opacity:0.32">0</span><span class="bit" style="left:88%;top:14%;font-size:14px;opacity:0.23">1</span><span class="bit" style="left:21%;top:34%;font-size:12px;opacity:0.15">0</span><span class="bit" style="left:66%;top:44%;font-size:13px;opacity:0.28">1</span><span class="bit" style="left:44%;top:70%;font-size:16px;opacity:0.24">0</span><span class="bit" style="left:12%;top:90%;font-size:14px;opacity:0.19">1</span><span class="bit" style="left:90%;top:67%;font-size:12px;opacity:0.31">0</span><span class="bit" style="left:36%;top:11%;font-size:13px;opacity:0.22">1</span><span class="bit" style="left:60%;top:31%;font-size:16px;opacity:0.26">0</span><span class="bit" style="left:8%;top:56%;font-size:14px;opacity:0.20">1</span><span class="bit" style="left:76%;top:80%;font-size:12px;opacity:0.34">0</span><span class="bit" style="left:27%;top:60%;font-size:13px;opacity:0.17">1</span><span class="bit" style="left:51%;top:85%;font-size:16px;opacity:0.29">0</span><span class="bit" style="left:95%;top:22%;font-size:14px;opacity:0.21">1</span><span class="bit" style="left:17%;top:4%;font-size:12px;opacity:0.16">0</span><span class="bit" style="left:68%;top:96%;font-size:13px;opacity:0.27">1</span><span class="bit" style="left:2%;top:76%;font-size:16px;opacity:0.33">0</span><span class="bit" style="left:83%;top:47%;font-size:14px;opacity:0.18">1</span><span class="bit" style="left:30%;top:24%;font-size:12px;opacity:0.30">0</span><span class="bit" style="left:56%;top:57%;font-size:13px;opacity:0.23">1</span><span class="bit" style="left:41%;top:38%;font-size:16px;opacity:0.19">0</span><span class="bit" style="left:79%;top:91%;font-size:14px;opacity:0.25">1</span><span class="bit" style="left:11%;top:15%;font-size:12px;opacity:0.14">0</span></div>
+<div class="lab-rig-wrap" aria-hidden="true"><svg id="labRig" viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#bfe8ff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#bfe8ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="180" cy="560" r="260" fill="none" stroke="#1c1c26" stroke-width="1"/>
+  <circle cx="180" cy="560" r="180" fill="none" stroke="#1c1c26" stroke-width="1"/>
+  <circle cx="1220" cy="560" r="260" fill="none" stroke="#1c1c26" stroke-width="1"/>
+  <circle cx="1220" cy="560" r="180" fill="none" stroke="#1c1c26" stroke-width="1"/>
+
+  <g stroke="#14141c" stroke-width="1">
+    <line x1="0" y1="620" x2="1400" y2="620"/>
+    <line x1="0" y1="660" x2="1400" y2="660"/>
+    <line x1="120" y1="600" x2="0" y2="700"/>
+    <line x1="320" y1="600" x2="220" y2="700"/>
+    <line x1="520" y1="600" x2="460" y2="700"/>
+    <line x1="880" y1="600" x2="940" y2="700"/>
+    <line x1="1080" y1="600" x2="1180" y2="700"/>
+    <line x1="1280" y1="600" x2="1400" y2="700"/>
+  </g>
+
+  <g id="armLeft">
+    <circle cx="180" cy="560" r="14" fill="#0d0d13" stroke="#3a3a4a" stroke-width="2"/>
+    <line id="lLink1" x1="180" y1="560" x2="300" y2="420" stroke="#4a4a5c" stroke-width="6" stroke-linecap="round"/>
+    <circle id="lJoint1" cx="300" cy="420" r="10" fill="#0d0d13" stroke="#5c5c70" stroke-width="2"/>
+    <line id="lLink2" x1="300" y1="420" x2="420" y2="330" stroke="#5c5c70" stroke-width="5" stroke-linecap="round"/>
+    <circle id="lJoint2" cx="420" cy="330" r="8" fill="#0d0d13" stroke="#6d6d85" stroke-width="2"/>
+    <g id="lGripper" transform="translate(420,330)">
+      <line x1="0" y1="0" x2="26" y2="-14" stroke="#e8e8ee" stroke-width="4" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="26" y2="10" stroke="#e8e8ee" stroke-width="4" stroke-linecap="round"/>
+      <circle id="lTip" cx="26" cy="-2" r="9" fill="url(#glow)"/>
+    </g>
+  </g>
+
+  <g id="armRight">
+    <circle cx="1220" cy="560" r="14" fill="#0d0d13" stroke="#3a3a4a" stroke-width="2"/>
+    <line id="rLink1" x1="1220" y1="560" x2="1100" y2="420" stroke="#4a4a5c" stroke-width="6" stroke-linecap="round"/>
+    <circle id="rJoint1" cx="1100" cy="420" r="10" fill="#0d0d13" stroke="#5c5c70" stroke-width="2"/>
+    <line id="rLink2" x1="1100" y1="420" x2="980" y2="330" stroke="#5c5c70" stroke-width="5" stroke-linecap="round"/>
+    <circle id="rJoint2" cx="980" cy="330" r="8" fill="#0d0d13" stroke="#6d6d85" stroke-width="2"/>
+    <g id="rGripper" transform="translate(980,330)">
+      <line x1="0" y1="0" x2="-26" y2="-14" stroke="#e8e8ee" stroke-width="4" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="-26" y2="10" stroke="#e8e8ee" stroke-width="4" stroke-linecap="round"/>
+      <circle id="rTip" cx="-26" cy="-2" r="9" fill="url(#glow)"/>
+    </g>
+  </g>
+</svg></div>
 
 <header class="nav-wrap">
   <nav class="nav container">
