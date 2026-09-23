@@ -1,17 +1,21 @@
-# Sahil Raut — Portfolio
+# Sahil Raut -- Robotics Portfolio
 
-Personal portfolio website for Sahil Raut, Robotics and Machine Learning Engineer.
+Built with Next.js (static export), React Three Fiber, Three.js, and GSAP + ScrollTrigger.
 
-## Local preview
+## Stack
+- **Next.js** app router, statically exported (`output: 'export'`)
+- **React Three Fiber** for declarative Three.js scene composition
+- **Three.js** procedural geometry for the lab scene (desk, monitors, shelf, window skyline, mannequin)
+- **GSAP** timelines animating the robotic arm's pick-and-place cycle and the walking humanoid's gait
+- **ScrollTrigger** driving a subtle camera move as you scroll through the hero section
 
-Open `index.html` in a browser, or run:
-
+## Local development
 ```bash
-python3 -m http.server 8000
+npm install
+npm run dev
 ```
 
-Then visit `http://localhost:8000`.
+## Build & deploy
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which runs `npm run build` (static export to `/out`) and publishes it to GitHub Pages.
 
-## GitHub Pages
-
-This repository is designed for GitHub Pages. Enable Pages in **Settings → Pages**, choose **Deploy from a branch**, select `main` and `/ (root)`, then save.
+Make sure GitHub Pages is configured to deploy from **GitHub Actions** (Settings -> Pages -> Source -> GitHub Actions), not from a branch, since this repo now ships a Next.js static export instead of a plain `index.html`.
