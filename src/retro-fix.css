@@ -1,0 +1,6 @@
+.retro-text {
+  color: hsl(var(--primary));
+  -webkit-text-fill-color: hsl(var(--primary));
+  background-image: none;
+  text-shadow: 1.5px 1.5px 0 hsl(210 100% 60% / 0.75);
+}
