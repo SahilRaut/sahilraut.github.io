@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import { BinaryGlitchText } from "@/components/ui/BinaryGlitchText";
 import { BinaryField } from "@/components/lab/BinaryField";
+import { AsciiRobotArm } from "@/components/lab/AsciiRobotArm";
 import sahilLogo from "@/assets/sahil-logo-original-white.png";
 
 const experience = [
@@ -39,7 +40,7 @@ const skills = [
 function Section({ index, title, children }: { index: string; title: string; children: ReactNode }) {
   return (
     <section className="grid gap-6 border-t border-border py-12 md:grid-cols-2 md:gap-8 md:py-24">
-      <h2 className="retro-text font-display text-xl pr-1 uppercase tracking-tight min-w-0 md:sticky md:top-24 md:self-start md:text-2xl">
+      <h2 className="font-display text-xl uppercase tracking-tight min-w-0 md:sticky md:top-24 md:self-start">
         <span className="text-primary">{index}.</span> {title}
       </h2>
       <div className="min-w-0 space-y-8 md:space-y-12">{children}</div>
@@ -82,7 +83,8 @@ export default function Home() {
           </p>
         </div>
         <div className="container relative">
-          <p className="font-display text-base leading-tight text-primary md:text-2xl">
+          {/* nudge right so the "A" lines up with the S glyph of SAHIL (S side-bearing ≈ 0.043 × h1 size) */}
+          <p className="ml-[0.56vw] font-display text-base leading-tight text-primary md:ml-[0.39vw] md:text-2xl">
             AI × Robotics
           </p>
           <h1 className="font-display text-[13vw] uppercase leading-[0.85] tracking-tighter md:text-[9vw]">
@@ -148,19 +150,24 @@ export default function Home() {
           </div>
         </Section>
 
-        <section className="border-t border-border py-16 md:py-24">
-          <h2 className="retro-text font-display text-[11vw] uppercase leading-[0.85] tracking-tighter md:text-[8vw]">
-            Thanks
-            <br />
-            for being
-            <br />
-            here
-          </h2>
-          <Link to="/contact" className="mt-6 inline-block font-display text-lg leading-tight text-primary hover:opacity-80 md:mt-8 md:text-2xl">
-            Solving robotics,
-            <br />
-            one inference layer at a time
-          </Link>
+        <section className="relative overflow-hidden border-t border-border pt-12 pb-4 md:pt-16 md:pb-6">
+          <div className="relative z-10 flex flex-col items-start gap-10 md:flex-row md:items-start md:justify-between md:gap-6">
+            <div className="min-w-0">
+              <h2 className="retro-text font-display text-[7vw] uppercase leading-[0.9] tracking-tighter md:text-[4.5vw]">
+                Thanks
+                <br />
+                for being
+                <br />
+                here
+              </h2>
+              <Link to="/contact" className="mt-5 inline-block font-display text-base leading-tight text-primary hover:opacity-80 md:mt-6 md:text-xl">
+                Solving robotics,
+                <br />
+                one inference layer at a time
+              </Link>
+            </div>
+            <AsciiRobotArm className="pointer-events-none order-last ml-auto h-[28vh] w-full max-w-[300px] md:order-none md:ml-0 md:h-[40vh] md:max-w-[30vw] md:shrink-0 opacity-90" />
+          </div>
         </section>
 
         <footer className="relative z-10 pb-8 text-xs text-muted-foreground">© {new Date().getFullYear()} Sahil Raut</footer>
