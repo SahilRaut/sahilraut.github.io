@@ -1,6 +1,15 @@
 name: Sync from Lovable and Deploy
 on:
   workflow_dispatch:
+    inputs:
+      since_sha:
+        description: "Wait until the Lovable repo moves past this commit"
+        required: false
+        default: ""
+      wait_minutes:
+        description: "How long to wait for the Lovable sync (minutes)"
+        required: false
+        default: "15"
 permissions:
   contents: write
   pages: write
@@ -13,6 +22,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Wait for the Lovable sync to land
+        env:
+          SINCE: ${{ inputs.since_sha }}
+          WAIT: ${{ inputs.wait_minutes }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$SINCE" ]; then echo "no since_sha given, syncing whatever is there"; exit 0; fi
+          deadline=$(( $(date +%s) + WAIT * 60 ))
+          while [ "$(date +%s)" -lt "$deadline" ]; do
+            head=$(gh api repos/SahilRaut/sahilraut-d21e9b93/git/ref/heads/main --jq .object.sha)
+            echo "lovable head: $head"
+            if [ -n "$head" ] && [ "$head" != "$SINCE" ]; then echo "sync landed"; exit 0; fi
+            sleep 15
+          done
+          echo "timed out waiting for the Lovable sync"
+          exit 1
       - name: Pull latest code from the Lovable-synced repo
         run: |
           git clone --depth 1 https://github.com/SahilRaut/sahilraut-d21e9b93.git /tmp/lovable
