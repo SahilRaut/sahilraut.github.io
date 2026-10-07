@@ -57,11 +57,14 @@ export default function ProjectDetail() {
 
             {/* Intro photo — how the project looked at the start */}
             {project.introImage && (
-              <figure className="mb-6 overflow-hidden rounded-lg border border-border bg-card">
+              <figure className="mb-6 overflow-hidden rounded-lg border border-border bg-card flex flex-col">
                 <img
                   src={project.introImage}
                   alt={`${project.name} — setup at the beginning`}
-                  className="w-full h-auto object-cover"
+                  className={cn(
+                    "w-full h-56 sm:h-64 object-contain bg-card",
+                    !/\.gif($|\?)/.test(project.introImage) && "object-cover h-auto"
+                  )}
                   loading="lazy"
                 />
                 {project.introImageCaption && (
@@ -83,7 +86,7 @@ export default function ProjectDetail() {
                     <img
                       src={photo.src}
                       alt={photo.caption || `${project.name} — photo ${i + 2}`}
-                      className="w-full h-56 sm:h-64 object-cover"
+                      className="w-full h-56 sm:h-64 object-contain bg-card"
                       loading="lazy"
                     />
                     {photo.caption && (
