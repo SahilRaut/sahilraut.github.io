@@ -4,6 +4,7 @@ import { CodeDivider } from "@/components/ui/CodeDivider";
 import { TechTag } from "@/components/ui/TechTag";
 import { ArrowLeft, ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 import { projectsBySlug as projectsData } from "@/data/projects";
 
@@ -53,6 +54,49 @@ export default function ProjectDetail() {
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
               {project.fullDescription}
             </p>
+
+            {/* Intro photo — how the project looked at the start */}
+            {project.introImage && (
+              <figure className="mb-6 overflow-hidden rounded-lg border border-border bg-card">
+                <img
+                  src={project.introImage}
+                  alt={`${project.name} — setup at the beginning`}
+                  className="w-full h-auto object-cover"
+                  loading="lazy"
+                />
+                {project.introImageCaption && (
+                  <figcaption className="px-4 py-3 font-mono text-xs text-muted-foreground border-t border-border">
+                    <span className="text-primary">{"//"}</span> {project.introImageCaption}
+                  </figcaption>
+                )}
+              </figure>
+            )}
+
+            {/* Additional project photos — side by side when there are two */}
+            {project.gallery && project.gallery.length > 0 && (
+              <div className={cn("mb-6 gap-6", project.gallery.length > 1 ? "grid sm:grid-cols-2" : "grid")}>
+                {project.gallery.map((photo, i) => (
+                  <figure
+                    key={i}
+                    className="overflow-hidden rounded-lg border border-border bg-card flex flex-col"
+                  >
+                    <img
+                      src={photo.src}
+                      alt={photo.caption || `${project.name} — photo ${i + 2}`}
+                      className="w-full h-56 sm:h-64 object-cover"
+                      loading="lazy"
+                    />
+                    {photo.caption && (
+                      <figcaption className="px-4 py-3 font-mono text-xs text-muted-foreground border-t border-border">
+                        <span className="text-primary">{"//"}</span> {photo.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                ))}
+              </div>
+            )}
+
+
             
             {/* Tech Stack */}
             <div className="flex flex-wrap gap-2 mb-6">
@@ -103,14 +147,25 @@ export default function ProjectDetail() {
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-4 pt-8 border-t border-border opacity-0 animate-fade-in-up stagger-4">
-            <Button variant="outline" className="font-mono" disabled>
+            <Button
+              variant="outline"
+              className="font-mono"
+              disabled={!project.repoUrl}
+              onClick={() => project.repoUrl && window.open(project.repoUrl, "_blank", "noopener,noreferrer")}
+            >
               <Github className="mr-2 h-4 w-4" />
               View Code
             </Button>
-            <Button variant="outline" className="font-mono" disabled>
-              <ExternalLink className="mr-2 h-4 w-4" />
-              Live Demo
-            </Button>
+            {project.demoUrl && (
+              <Button
+                variant="outline"
+                className="font-mono"
+                onClick={() => project.demoUrl && window.open(project.demoUrl, "_blank", "noopener,noreferrer")}
+              >
+                <ExternalLink className="mr-2 h-4 w-4" />
+                Live Demo
+              </Button>
+            )}
           </div>
         </div>
       </section>
