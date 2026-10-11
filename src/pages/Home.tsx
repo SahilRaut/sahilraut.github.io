@@ -132,9 +132,14 @@ export default function Home() {
 
       <main className="container relative z-10">
         <Section index="01" title="About">
-          <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-            I'm an AI robotics software developer at <span className="text-foreground">NEURA Robotics</span>, bridging deep learning research and physical hardware so robots can learn and adapt to novel tasks end to end. BEng (Hons) Robotics, UWE Bristol. Outside work: Formula 1, football, chess and cinematography.
-          </p>
+          <div className="space-y-5">
+            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+              I'm a robotics engineer working across perception, learning, planning, control and embedded hardware. I build and integrate systems that help robots understand their environment, make decisions and act reliably; from vision and data pipelines to manipulation systems.
+            </p>
+            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
+              I'm interested in embodied AI, autonomous systems and human–robot interaction. Outside work, you'll find me following Formula 1, playing football or chess, and contributing to open-source robotics projects.
+            </p>
+          </div>
         </Section>
 
         <Section index="02" title="Experience">
