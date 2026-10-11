@@ -192,10 +192,11 @@ export default function Home() {
 
         <Section index="05" title="Education">
           <div>
-            <p className="text-xs text-muted-foreground">University of the West of England • Bristol</p>
-            <h3 className="mt-2 text-xl font-semibold">BEng (Hons) Robotics</h3>
+            <h3 className="text-xl font-semibold">BEng (Hons) Robotics</h3>
+            <p className="mt-2 text-sm text-muted-foreground">University of the West of England, Bristol</p>
+            <p className="mt-1 text-sm font-medium text-primary">First Class Honours</p>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Competed at the SICK Solution Hackathon 2023 in Germany and served as a student representative.
+              Focused on robotics systems, AI, control and embedded engineering. Represented students during my degree and competed at the SICK Solution Hackathon 2023 in Germany.
             </p>
           </div>
         </Section>
