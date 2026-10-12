@@ -8,4 +8,8 @@
 - [x] Drop "replication" wording from the CASTOR project everywhere (name, slug, copy, sitemap, legacy redirect)
 - [x] Push and deploy the latest changes to GitHub Pages
 - [x] Add Vector Desk Accountability project (photo + YouTube demo)
-- [ ] Move Vector Desk Accountability to the bottom of the projects list and re-deploy
+- [x] Move Vector Desk Accountability to the bottom of the projects list and re-deploy
+
+- [x] Professional polish: dimmer background, no em dashes/contractions, Code/Demo buttons on cards, grouped skills, new header and footer
+
+- [x] Remove homepage footer block; Download CV + GitHub/LinkedIn/YouTube icons under the closing CTA; slim one-line footer on inner pages
